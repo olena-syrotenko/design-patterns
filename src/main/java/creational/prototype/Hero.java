@@ -16,8 +16,10 @@ public class Hero extends ActiveUnit {
 
 	public Hero(Hero hero) {
 		super(hero);
-		this.protection = hero.getProtection();
-		this.helper = new Helper(hero.getHelper());
+		if (hero != null) {
+			this.protection = hero.getProtection();
+			this.helper = new Helper(hero.getHelper());
+		}
 	}
 
 	public Integer getProtection() {

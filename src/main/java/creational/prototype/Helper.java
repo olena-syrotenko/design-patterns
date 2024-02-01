@@ -11,7 +11,9 @@ public class Helper extends GameUnit {
 	}
 
 	public Helper(Helper helper) {
-		this.additionalDamage = helper.getAdditionalDamage();
+		if (helper != null) {
+			this.additionalDamage = helper.getAdditionalDamage();
+		}
 	}
 
 	public Integer getAdditionalDamage() {

@@ -16,9 +16,11 @@ public class ActiveUnit extends GameUnit {
 	}
 
 	public ActiveUnit(ActiveUnit activeUnit) {
-		this.coordinates = new Coordinates(activeUnit.getCoordinates().getX(), activeUnit.getCoordinates().getY());
-		this.healthPoints = activeUnit.getHealthPoints();
-		this.damage = activeUnit.getDamage();
+		if (activeUnit != null) {
+			this.coordinates = new Coordinates(activeUnit.getCoordinates().getX(), activeUnit.getCoordinates().getY());
+			this.healthPoints = activeUnit.getHealthPoints();
+			this.damage = activeUnit.getDamage();
+		}
 	}
 
 	public Coordinates getCoordinates() {

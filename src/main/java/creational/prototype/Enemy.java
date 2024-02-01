@@ -13,7 +13,9 @@ public class Enemy extends ActiveUnit {
 
 	public Enemy(Enemy enemy) {
 		super(enemy);
-		this.criticalDamageProb = enemy.getCriticalDamageProb();
+		if (enemy != null) {
+			this.criticalDamageProb = enemy.getCriticalDamageProb();
+		}
 	}
 
 	public Double getCriticalDamageProb() {
