@@ -30,7 +30,7 @@
   - implement Cloneable interface, override and make public clone() method, implement copy constructors to allow deep copy
   - implement Serialization interface, use SerializationUtils.roundtrip() method to perfom serialization and deserialization of object
 
-**Pitballs**:
+**Pitfalls**:
   - bad with classes that have multiple mutable attributes that require deep copy
 
 ![structure](https://github.com/olena-syrotenko/design-patterns/assets/104794400/462b64b7-208e-4e09-bd57-71ad38fc96cc)
