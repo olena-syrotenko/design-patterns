@@ -66,7 +66,7 @@
 
 **When**:
   - construction of object is costly or not possible (object is supplied)
-  - code shouldn't depend on concreate classes that need to be copied
+  - code shouldn't depend on concrete classes that need to be copied
 
 **Implementation**:
   - implement Cloneable interface, override and make public clone() method, implement copy constructors to allow deep copy
@@ -87,7 +87,7 @@
 
 **Implementation**:
    1. provide interface for a creator with get object method
-   2. provide implementations of this interface with overriding method to return object (using _inheritance_ to define concreate creation method)
+   2. provide implementations of this interface with overriding method to return object (using _inheritance_ to define concrete creation method)
 
 **Pitfalls**:
    - not easy to refactor exisiting code into factory method
@@ -97,7 +97,7 @@
 **Purpose** - produce families of related object.
 
 **When**:
-   - we have two or more objects which form family and we don't want to depend on the concreate class'
+   - we have two or more objects which form family and we don't want to depend on the concrete class'
 
 **Implementation**:
    1. stidying the product "sets"
