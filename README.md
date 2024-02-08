@@ -8,7 +8,8 @@
    - [Prototype](#prototype)
    - [Factory Method](#factory-method)
    - [Abstract Factory](#abstract-factory)
-
+4. Structural Patterns
+   - [Adapter](#adapter)
 
 ## SOLID
 
@@ -22,7 +23,7 @@
 ## Pattern Types
 
 1. **Creational Patterns** - deal with the process of creation of objects of classes.
-2. **Structural Patterns** -
+2. **Structural Patterns** - deal with how classes and objects are arranged and composed.
 3. **Behavioural Patterns** - 
 
 
@@ -97,7 +98,7 @@
 **Purpose** - produce families of related object.
 
 **When**:
-   - we have two or more objects which form family and we don't want to depend on the concrete class'
+   - we have two or more objects which form family and we don't want to depend on the concrete class.
 
 **Implementation**:
    1. stidying the product "sets"
@@ -108,3 +109,19 @@
 
 **Pitfalls**:
    - adding a new product requires changes to base factory and _all_ its implementations
+
+
+## Adapter
+**Purpose** - allow objects with incompatible interfaces to collaborate.
+
+**When**:
+   - need to use existing class but the interface isn't compatible with the rest of code
+
+**Implementation**:
+   1. create Adapter class that will implement interface expected by client
+   2. connect an existing class and an adapter:
+      - _class adapter_ (using inheritance): extend adapter from existing class
+      - _object adapter_ (using composition): add existing class as an attribute in adapter ***_preferred_**
+
+**Pitfalls**:
+   - usage of inheritance to implement adapter create unrelated methods in target code, polluting it
