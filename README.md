@@ -12,6 +12,8 @@
    - [Adapter](#adapter)
    - [Bridge](#bridge)
    - [Composite](#composite)
+   - [Decorator](#decorator)
+   - [Facade](#facade)
 
 ## SOLID
 
@@ -163,3 +165,34 @@
 **Pitfalls**:
    - difficult to restrict what is added to hierarchy
    - creational of original tree is complex if number of nodes is high
+
+
+## Decorator
+**Purpose** - attach new behaviors to objects by placing these objects inside special wrapper objects.
+
+**When**:
+   - need to assign extra behaviors to objects at runtime without breaking the code
+   - not possible to extend an object’s behavior using inheritance
+
+**Implementation**:
+   1. define a Component that is interface needed or already used by client and its concrete implementation
+   2. define a Decorator that implements Component and also has reference to a concrete component implementation
+   3. provide additional behavior in decorator methods - decorator should add helpful small behaviors to object's original behavior and don't change meaning of operation.
+
+**Pitfalls**:
+   - can grow up to a large number of classes, where each class adds a small functionality.
+
+
+## Facade
+**Purpose** - provide a simplified interface to a library, a framework or any other complex set of classes.
+
+**When**:
+   - need to have a limited but straightforward interface to a complex subsystem
+   - client is tightly coupled with a large number of interfaces and classes of a subsystem
+
+**Implementation**:
+  - create a Facade class with method that exposes each of the "use case" of subsystem. Can be an interface to take care of working with different subsystems
+
+**Pitfalls**:
+   - can hide improperly designed API
+   - misuse as a "container of related methods"
