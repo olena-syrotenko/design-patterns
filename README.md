@@ -10,6 +10,8 @@
    - [Abstract Factory](#abstract-factory)
 4. Structural Patterns
    - [Adapter](#adapter)
+   - [Bridge](#bridge)
+   - [Composite](#composite)
 
 ## SOLID
 
@@ -125,3 +127,39 @@
 
 **Pitfalls**:
    - usage of inheritance to implement adapter create unrelated methods in target code, polluting it
+
+
+## Bridge
+**Purpose** - split a large class or a set of closely related classes into two separate hierarchies — abstraction and implementation.
+
+**When**:
+   - need to have abstraction and implementation without affecting each other
+   - need to extend a class in several orthogonal (independent) dimensions
+   - need to divide and organize a monolithic class that has several variants of some functionality
+
+**Implementation**:
+   1. define abstraction class with base operations
+   2. *_optionally_ define a refind abstraction with more specialized operations
+   3. define an implementation class that will be used by abstraction (with composition) _if we have a single implementation than we can skip creating the interface_
+   4. define several concrete implementations
+
+**Pitfalls**:
+   - need to have a well thought out and fairly comprehensive design
+   - need to be designed up front (adding to legacy code is difficult)
+
+
+## Composite
+**Purpose** - compose objects into tree structures and then work with these structures as if they were individual objects.
+
+**When**:
+   - have a part-whole relationship or hierarchy of objects and need to treat all objects in this hierarchy uniformly
+   - need to organize objects into tree structure
+
+**Implementation**:
+   1. create Component interface in which defined methods both for leaf and composite objects
+   2. implement the Composite with add/remove a child operations
+   3. implement Leaf with basic method
+
+**Pitfalls**:
+   - difficult to restrict what is added to hierarchy
+   - creational of original tree is complex if number of nodes is high
