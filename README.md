@@ -8,7 +8,12 @@
    - [Prototype](#prototype)
    - [Factory Method](#factory-method)
    - [Abstract Factory](#abstract-factory)
-
+4. Structural Patterns
+   - [Adapter](#adapter)
+   - [Bridge](#bridge)
+   - [Composite](#composite)
+   - [Decorator](#decorator)
+   - [Facade](#facade)
 
 ## SOLID
 
@@ -22,7 +27,7 @@
 ## Pattern Types
 
 1. **Creational Patterns** - deal with the process of creation of objects of classes.
-2. **Structural Patterns** -
+2. **Structural Patterns** - deal with how classes and objects are arranged and composed.
 3. **Behavioural Patterns** - 
 
 
@@ -66,7 +71,7 @@
 
 **When**:
   - construction of object is costly or not possible (object is supplied)
-  - code shouldn't depend on concreate classes that need to be copied
+  - code shouldn't depend on concrete classes that need to be copied
 
 **Implementation**:
   - implement Cloneable interface, override and make public clone() method, implement copy constructors to allow deep copy
@@ -87,7 +92,7 @@
 
 **Implementation**:
    1. provide interface for a creator with get object method
-   2. provide implementations of this interface with overriding method to return object (using _inheritance_ to define concreate creation method)
+   2. provide implementations of this interface with overriding method to return object (using _inheritance_ to define concrete creation method)
 
 **Pitfalls**:
    - not easy to refactor exisiting code into factory method
@@ -97,7 +102,7 @@
 **Purpose** - produce families of related object.
 
 **When**:
-   - we have two or more objects which form family and we don't want to depend on the concreate class'
+   - we have two or more objects which form family and we don't want to depend on the concrete class.
 
 **Implementation**:
    1. stidying the product "sets"
@@ -108,3 +113,86 @@
 
 **Pitfalls**:
    - adding a new product requires changes to base factory and _all_ its implementations
+
+
+## Adapter
+**Purpose** - allow objects with incompatible interfaces to collaborate.
+
+**When**:
+   - need to use existing class but the interface isn't compatible with the rest of code
+
+**Implementation**:
+   1. create Adapter class that will implement interface expected by client
+   2. connect an existing class and an adapter:
+      - _class adapter_ (using inheritance): extend adapter from existing class
+      - _object adapter_ (using composition): add existing class as an attribute in adapter ***_preferred_**
+
+**Pitfalls**:
+   - usage of inheritance to implement adapter create unrelated methods in target code, polluting it
+
+
+## Bridge
+**Purpose** - split a large class or a set of closely related classes into two separate hierarchies — abstraction and implementation.
+
+**When**:
+   - need to have abstraction and implementation without affecting each other
+   - need to extend a class in several orthogonal (independent) dimensions
+   - need to divide and organize a monolithic class that has several variants of some functionality
+
+**Implementation**:
+   1. define abstraction class with base operations
+   2. *_optionally_ define a refind abstraction with more specialized operations
+   3. define an implementation class that will be used by abstraction (with composition) _if we have a single implementation than we can skip creating the interface_
+   4. define several concrete implementations
+
+**Pitfalls**:
+   - need to have a well thought out and fairly comprehensive design
+   - need to be designed up front (adding to legacy code is difficult)
+
+
+## Composite
+**Purpose** - compose objects into tree structures and then work with these structures as if they were individual objects.
+
+**When**:
+   - have a part-whole relationship or hierarchy of objects and need to treat all objects in this hierarchy uniformly
+   - need to organize objects into tree structure
+
+**Implementation**:
+   1. create Component interface in which defined methods both for leaf and composite objects
+   2. implement the Composite with add/remove a child operations
+   3. implement Leaf with basic method
+
+**Pitfalls**:
+   - difficult to restrict what is added to hierarchy
+   - creational of original tree is complex if number of nodes is high
+
+
+## Decorator
+**Purpose** - attach new behaviors to objects by placing these objects inside special wrapper objects.
+
+**When**:
+   - need to assign extra behaviors to objects at runtime without breaking the code
+   - not possible to extend an object’s behavior using inheritance
+
+**Implementation**:
+   1. define a Component that is interface needed or already used by client and its concrete implementation
+   2. define a Decorator that implements Component and also has reference to a concrete component implementation
+   3. provide additional behavior in decorator methods - decorator should add helpful small behaviors to object's original behavior and don't change meaning of operation.
+
+**Pitfalls**:
+   - can grow up to a large number of classes, where each class adds a small functionality.
+
+
+## Facade
+**Purpose** - provide a simplified interface to a library, a framework or any other complex set of classes.
+
+**When**:
+   - need to have a limited but straightforward interface to a complex subsystem
+   - client is tightly coupled with a large number of interfaces and classes of a subsystem
+
+**Implementation**:
+  - create a Facade class with method that exposes each of the "use case" of subsystem. Can be an interface to take care of working with different subsystems
+
+**Pitfalls**:
+   - can hide improperly designed API
+   - misuse as a "container of related methods"
