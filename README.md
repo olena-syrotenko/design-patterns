@@ -14,6 +14,8 @@
    - [Composite](#composite)
    - [Decorator](#decorator)
    - [Facade](#facade)
+   - [Flyweight](#flyweight)
+   - [Proxy](#proxy)
 
 ## SOLID
 
@@ -196,3 +198,45 @@
 **Pitfalls**:
    - can hide improperly designed API
    - misuse as a "container of related methods"
+
+
+## Flyweight
+**Purpose** - fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+
+**When**:
+   - system needs a large number of particular objects and maintaining them is a performance concern
+
+**Implementation**:
+  1. identify _intrinsic_ (unchanging data duplicated across many objects) and _extrinsic_ (contextual data unique to each object) states of object
+  2. implement Flyweight with intrinsic state and methods that accept extrinsic state as parameters. this object must be immutable
+  3. implement Flyweight factory whoch caches flyweights and provide methods to get them
+  4. in client either maintaining extrinsic state or compute it when using flyweights
+
+**Pitfalls**:
+   - runtime cost may be added for maintaining extrinsic state
+   - typical web app may not have a lot of use of this pattern
+
+
+## Proxy
+**Purpose** - provide a substitute or placeholder for another object to controls access to it.
+
+**When**:
+   - _protection_ proxy - control access to original object's operations
+   - _remote_ proxy - local representation of a remote object
+   - _virtual_ proxy - lazy initialization of a heavyweight object
+   - _logging_ proxy - keep a history of requests to the service object
+   - _caching_ proxy - cache results of client requests and manage their lyfecycle
+   - _smart reference_ proxy - need to dismiss a heavyweight object once there are no clients that use it
+
+**Implementation**:
+  1. Static proxy:
+     - create Proxy class that implements same interface as a real service and, if needed, contains instance of a real service
+     - implement proxy methods with needed functionality before delegating to real service
+     - introduce a creation method that decides whether client gets a proxy or a real service
+   2. Dynamic proxy:
+      - implement java.lang.reflect.InvocationHandler interface
+      - in invoke() method decide actions according to what Method of real object is needed
+      - actual proxy instance is created using java.lang.reflect.Proxy by client
+
+**Pitfalls**:
+   - dynamic proxy only works if a target service implements at least one interface
