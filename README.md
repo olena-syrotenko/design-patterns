@@ -20,6 +20,7 @@
    - [Chain of Responsibility](#chain-of-responsibility)
    - [Command](#command)
    - [Iterator](#iterator)
+   - [Mediator](#mediator)
 
 ## SOLID
 
@@ -294,5 +295,22 @@
   4. implement Collection interface. The collection object must pass itself to the iterator's constructor
 
 **Pitfalls**:
-   - don't provide direct access to index during iteration
+   - not provide direct access to index during iteration
    - sensitive to changes to the underlying collection
+
+
+## Iterator
+**Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object.
+
+**When**:
+   - can’t reuse a component in a different program because it’s too dependent on other components
+   - it's hard to change some of classes because they are tightly coupled to a bunch of other classes
+
+**Implementation**:
+  1. define Mediator interface with a generic method for receiving notifications from components. This method typically needs to know which object was changes and optionally the exact property which was changed in it
+  2. implement Mediator interface with class that storing references to all components
+  3. component should store the reference to the mediator object
+
+**Pitfalls**:
+   - mediator becomes a central control object - as complexity of iteration grows, mediator complexity can get out of hand
+   - not reusable because tightly coupled in a particular collaboration
