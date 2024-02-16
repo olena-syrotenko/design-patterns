@@ -16,6 +16,11 @@
    - [Facade](#facade)
    - [Flyweight](#flyweight)
    - [Proxy](#proxy)
+5. Behavioral Patterns
+   - [Chain of Responsibility](#chain-of-responsibility)
+   - [Command](#command)
+   - [Iterator](#iterator)
+   - [Mediator](#mediator)
 
 ## SOLID
 
@@ -30,7 +35,7 @@
 
 1. **Creational Patterns** - deal with the process of creation of objects of classes.
 2. **Structural Patterns** - deal with how classes and objects are arranged and composed.
-3. **Behavioural Patterns** - 
+3. **Behavioural Patterns** - describe how classes and objects interfact and communicate with each other
 
 
 ## Singleton
@@ -240,3 +245,72 @@
 
 **Pitfalls**:
    - dynamic proxy only works if a target service implements at least one interface
+
+
+## Chain of Responsibility
+**Purpose** - pass requests along a chain of handlers, where each handler decides either to process the request or to pass it to the next handler in the chain.
+
+**When**:
+   - need to avoid coupling the code which sends request to the code which handles the request
+   - program is expected to process different kinds of requests in various unknown way
+   - it’s essential to execute several handlers in a particular order
+
+**Implementation**:
+  1. define Handler interface that must define a method to accept incoming requests and a method to access next handler in chain
+  2. implement Handler interface at least in one concrete handler. Concrete handlers should check if it can handler the request and if not then pass it to the next handler
+  3. In client code create chain of handlers. Client needs to know only the first object
+
+**Pitfalls**:
+   - there is no guarantee that the requst will be handled by at least one handler
+   - it is easy to misconfigure connection of handlers and some of them may be left unconnected to chain
+
+
+## Command
+**Purpose** - turn a request into a stand-alone object that contains all information about the request and can be passed as a method argument.
+
+**When**:
+   - need to queue operations, schedule their execution, or execute them remotely
+   - need to represent a request or a method as an object
+
+**Implementation**:
+  1. create Command interface with method without arguments which executes the command
+  2. implement Command interface for needed requests and operation types. It must contains arguments and Reciever reference, on which operation is invoked. Command can also support undo operation
+
+**Pitfalls**:
+   - things get a bit controversial when it comed to returning value and error handling
+
+
+## Iterator
+**Purpose** - traverse elements of a collection without exposing its underlying representation.
+
+**When**:
+   - need to hide a complexity of used data structure
+   - reduce duplication of traversal code
+   - need to traverse different data structures (collections, files, network) or when type of them are unknown beforehand
+
+**Implementation**:
+  1. define Iterator interface with methods to check whether there is an element in sequence and get the element
+  2. implement Iterator interface as inner classes of concrete aggregates. Concrete iterator needs to maintain state to provide its position in collection
+  3. define Collection with methods to get iterator
+  4. implement Collection interface. The collection object must pass itself to the iterator's constructor
+
+**Pitfalls**:
+   - not provide direct access to index during iteration
+   - sensitive to changes to the underlying collection
+
+
+## Iterator
+**Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object.
+
+**When**:
+   - can’t reuse a component in a different program because it’s too dependent on other components
+   - it's hard to change some of classes because they are tightly coupled to a bunch of other classes
+
+**Implementation**:
+  1. define Mediator interface with a generic method for receiving notifications from components. This method typically needs to know which object was changes and optionally the exact property which was changed in it
+  2. implement Mediator interface with class that storing references to all components
+  3. component should store the reference to the mediator object
+
+**Pitfalls**:
+   - mediator becomes a central control object - as complexity of iteration grows, mediator complexity can get out of hand
+   - not reusable because tightly coupled in a particular collaboration
