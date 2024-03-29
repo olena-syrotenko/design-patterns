@@ -21,6 +21,12 @@
    - [Command](#command)
    - [Iterator](#iterator)
    - [Mediator](#mediator)
+   - [Memento](#memento)
+   - [Observer](#observer)
+   - [State](#state)
+   - [Strategy](#strategy)
+   - [Template Method](#template-method)
+   - [Visitor](#visitor)
 
 ## SOLID
 
@@ -299,7 +305,7 @@
    - sensitive to changes to the underlying collection
 
 
-## Iterator
+## Mediator
 **Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object.
 
 **When**:
@@ -314,3 +320,99 @@
 **Pitfalls**:
    - mediator becomes a central control object - as complexity of iteration grows, mediator complexity can get out of hand
    - not reusable because tightly coupled in a particular collaboration
+
+
+## Memento
+**Purpose** - save and restore the previous state of object without revealing the details of its implementation.
+
+**When**:
+   - need to store object state without exposing internal details about it
+   - need to implement undo functionality
+
+**Implementation**:
+  1. define originator state which is to be stored in memento.
+  2. implement Memento with requirement that it can't be changed and read outside the originator. _Memento often is inner class_
+  3. originator provides the method to get its current snapshot, which will return Memento instance. Another method takes Memento object as a parameter and resets itself to match with stored state.
+
+**Pitfalls**:
+   - complex process of creating snapshots if originator has other objects as part of state
+
+
+## Observer
+**Purpose** - define a subscription mechanism to notify multiple objects about any events that happen to the object they are observing.
+
+**When**:
+   - need to notify multiple objects whenever an object changes a state and the set of objects is unknown beforehand
+
+**Implementation**:
+  1. define an Observer interface with a method used by Subject to notify about state change.
+  2. create a Subject interface (or a concrete class). Implement methods to attach and detach observers, notify registered observers and provide state information.
+  3. implement Observer interface and use a passed reference of Subject to get more information about state (or provide it directly).
+
+**Pitfalls**:
+   - can be infinite loop if every setter method triggering updates and Observer changes state of Subject
+   - updated become expensive as number of observers increases
+
+
+## State
+**Purpose** - let an object alter its behaviour when its internal state changes (as if an objecy changed its class).
+
+**When**:
+   - object behaves differently depending on its current state ans state-specific code changes frequently
+   - have a lot of duplicate code across similar statess and transitions of a condition-based state machine
+     
+**Implementation**:
+  1. identify distinct values for state of an object (context). Each state value will be a separate class with a specific state behavior.
+  2. implement state transitions: states can themselves transition to next state based on input of method or context can initiate this transition.
+  3. cluent interacts with context and is unaware of existence of state
+
+**Pitfalls**:
+   - a lot more classes are cteated for providing functionality for each state
+   - state transitions become complicated if there are multiple possible states to which object can move from current state
+
+
+## Strategy
+**Purpose** - define a family of algorithms as separate interchangeable objects.
+
+**When**:
+   - find different algorithms in methods which are selected with conditional statements
+   - need to use different variants of algorithm and switch between them in runtime
+     
+**Implementation**:
+  1. define a Strategy interface which is used by main/context class. Context provides strategy with all data that is needed.
+  2. provide implementations for various algorithms: a class per algorithm.
+
+**Pitfalls**:
+   - since client code configures context object with appropriate strategy object, clients know about all implementations. Add new strategy means changing client code.
+
+
+## Template Method
+**Purpose** - define the skeleton of an algorithm and let override specific steps of it without changing its structure.
+
+**When**:
+   - need to extend only particular steps of an algorithm, but not the whole algorithm
+     
+**Implementation**:
+  1. define an algorithm in template method: break algorithm in multiple steps where each step will become an abstract method. Template method must be _final_ to avoid overriding by subclasses.
+  2. implement abstract steps in subclasses.
+
+**Pitfalls**:
+   - hard to maintain template method the more steps it has
+   - algorithm implementation can be spread over multiple classes making it difficult to understand code
+
+
+## Visitor
+**Purpose** - separate algorithms from objects on which they operate.
+
+**When**:
+   - need to perform an operation on all elements of complex structure and not affect to class definition
+   - need to have related functionality grouped in a single class instead of spread across multiple classes
+     
+**Implementation**:
+  1. create a Visitor interface with methods for each class we want to support.
+  2. define _accept_ method in element classes, which accepts visitor object and call appropriate visitor method).
+  3. implement Visitor interface, each implementation provides a specific functionality for interested classes.
+
+**Pitfalls**:
+   - supporting a new class in visitors requires changes in all visitor implementations
+   - visitors might lack the neccesary access to the private fields or methods that they are supposed to work with
