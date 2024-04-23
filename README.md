@@ -66,7 +66,7 @@
 
 ## Builder
 **Purpose** - construct complex objects step by step. 
-![UML](/src/resources/uml/creational/builder.png)
+![UML](src/resources/uml/creational/builder.png)
 
 **When**:
    - immutable classes with multiple attributes
@@ -82,7 +82,8 @@
 
 
 ## Prototype
-**Purpose** - copy existing object to create a separate new one. [UML](/src/resources/uml/creational/prototype.png)
+**Purpose** - copy existing object to create a separate new one. 
+![UML](src/resources/uml/creational/prototype.png)
 
 **When**:
   - construction of object is costly or not possible (object is supplied)
@@ -97,7 +98,8 @@
 
 
 ## Factory method
-**Purpose** - provide an interface for creating objects in a superclass. [UML](/src/resources/uml/creational/factory_method.png)
+**Purpose** - provide an interface for creating objects in a superclass. 
+![UML](src/resources/uml/creational/factory_method.png)
 
 **When**:
    - want to move creation logic into a separate class
@@ -112,7 +114,8 @@
 
 
 ## Abstract Factory
-**Purpose** - produce families of related object. [UML](/src/resources/uml/creational/abstract_factory.png)
+**Purpose** - produce families of related object. 
+![UML](src/resources/uml/creational/abstract_factory.png)
 
 **When**:
    - we have two or more objects which form family, and we don't want to depend on the concrete class.
@@ -129,7 +132,8 @@
 
 
 ## Adapter
-**Purpose** - allow objects with incompatible interfaces to collaborate. [UML](/src/resources/uml/structural/adapter.png)
+**Purpose** - allow objects with incompatible interfaces to collaborate. 
+![UML](src/resources/uml/structural/adapter.png)
 
 **When**:
    - need to use existing class but the interface isn't compatible with the rest of code
@@ -145,7 +149,8 @@
 
 
 ## Bridge
-**Purpose** - split a large class or a set of closely related classes into two separate hierarchies — abstraction and implementation. [UML](/src/resources/uml/structural/bridge.png)
+**Purpose** - split a large class or a set of closely related classes into two separate hierarchies — abstraction and implementation. 
+![UML](src/resources/uml/structural/bridge.png)
 
 **When**:
    - need to have abstraction and implementation without affecting each other
@@ -164,7 +169,8 @@
 
 
 ## Composite
-**Purpose** - compose objects into tree structures and then work with these structures as if they were individual objects. [UML](/src/resources/uml/structural/composite.png)
+**Purpose** - compose objects into tree structures and then work with these structures as if they were individual objects. 
+![UML](src/resources/uml/structural/composite.png)
 
 **When**:
    - have a part-whole relationship or hierarchy of objects and need to treat all objects in this hierarchy uniformly
@@ -181,7 +187,8 @@
 
 
 ## Decorator
-**Purpose** - attach new behaviors to objects by placing these objects inside special wrapper objects. [UML](/src/resources/uml/structural/decorator.png)
+**Purpose** - attach new behaviors to objects by placing these objects inside special wrapper objects. 
+![UML](src/resources/uml/structural/decorator.png)
 
 **When**:
    - need to assign extra behaviors to objects at runtime without breaking the code
@@ -197,7 +204,8 @@
 
 
 ## Facade
-**Purpose** - provide a simplified interface to a library, a framework or any other complex set of classes. [UML](/src/resources/uml/structural/facade.png)
+**Purpose** - provide a simplified interface to a library, a framework or any other complex set of classes. 
+![UML](src/resources/uml/structural/facade.png)
 
 **When**:
    - need to have a limited but straightforward interface to a complex subsystem
@@ -212,7 +220,8 @@
 
 
 ## Flyweight
-**Purpose** - fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all the data in each object. [UML](/src/resources/uml/structural/flyweight.png)
+**Purpose** - fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all the data in each object. 
+![UML](src/resources/uml/structural/flyweight.png)
 
 **When**:
    - system needs a large number of particular objects and maintaining them is a performance concern
@@ -229,7 +238,8 @@
 
 
 ## Proxy
-**Purpose** - provide a substitute or placeholder for another object to controls access to it. [UML](/src/resources/uml/structural/proxy.png)
+**Purpose** - provide a substitute or placeholder for another object to controls access to it. 
+![UML](src/resources/uml/structural/proxy.png)
 
 **When**:
    - _protection_ proxy - control access to original object's operations
@@ -254,7 +264,8 @@
 
 
 ## Chain of Responsibility
-**Purpose** - pass requests along a chain of handlers, where each handler decides either to process the request or to pass it to the next handler in the chain. [UML](/src/resources/uml/behavioral/chain_of_responsibility.png)
+**Purpose** - pass requests along a chain of handlers, where each handler decides either to process the request or to pass it to the next handler in the chain. 
+![UML](src/resources/uml/behavioral/chain_of_responsibility.png)
 
 **When**:
    - need to avoid coupling the code which sends request to the code which handles the request
@@ -272,7 +283,8 @@
 
 
 ## Command
-**Purpose** - turn a request into a stand-alone object that contains all information about the request and can be passed as a method argument. [UML](/src/resources/uml/behavioral/command.png)
+**Purpose** - turn a request into a stand-alone object that contains all information about the request and can be passed as a method argument. 
+![UML](src/resources/uml/behavioral/command.png)
 
 **When**:
    - need to queue operations, schedule their execution, or execute them remotely
@@ -287,7 +299,8 @@
 
 
 ## Iterator
-**Purpose** - traverse elements of a collection without exposing its underlying representation. [UML](/src/resources/uml/behavioral/iterator.png)
+**Purpose** - traverse elements of a collection without exposing its underlying representation. 
+![UML](src/resources/uml/behavioral/iterator.png)
 
 **When**:
    - need to hide a complexity of used data structure
@@ -306,7 +319,8 @@
 
 
 ## Mediator
-**Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object. [UML](/src/resources/uml/behavioral/mediator.png)
+**Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object. 
+![UML](src/resources/uml/behavioral/mediator.png)
 
 **When**:
    - can’t reuse a component in a different program because it’s too dependent on other components
@@ -323,7 +337,8 @@
 
 
 ## Memento
-**Purpose** - save and restore the previous state of object without revealing the details of its implementation. [UML](/src/resources/uml/behavioral/memento.png)
+**Purpose** - save and restore the previous state of object without revealing the details of its implementation. 
+![UML](src/resources/uml/behavioral/memento.png)
 
 **When**:
    - need to store object state without exposing internal details about it
@@ -339,7 +354,8 @@
 
 
 ## Observer
-**Purpose** - define a subscription mechanism to notify multiple objects about any events that happen to the object they are observing. [UML](/src/resources/uml/behavioral/observer.png)
+**Purpose** - define a subscription mechanism to notify multiple objects about any events that happen to the object they are observing. 
+![UML](src/resources/uml/behavioral/observer.png)
 
 **When**:
    - need to notify multiple objects whenever an object changes a state and the set of objects is unknown beforehand
@@ -355,7 +371,8 @@
 
 
 ## State
-**Purpose** - let an object alter its behaviour when its internal state changes (as if an object changed its class). [UML](/src/resources/uml/behavioral/state.png)
+**Purpose** - let an object alter its behaviour when its internal state changes (as if an object changed its class). 
+![UML](src/resources/uml/behavioral/state.png)
 
 **When**:
    - object behaves differently depending on its current state and state-specific code changes frequently
@@ -372,7 +389,8 @@
 
 
 ## Strategy
-**Purpose** - define a family of algorithms as separate interchangeable objects. [UML](/src/resources/uml/behavioral/strategy.png)
+**Purpose** - define a family of algorithms as separate interchangeable objects. 
+![UML](src/resources/uml/behavioral/strategy.png)
 
 **When**:
    - find different algorithms in methods which are selected with conditional statements
@@ -387,7 +405,8 @@
 
 
 ## Template Method
-**Purpose** - define the skeleton of an algorithm and let override specific steps of it without changing its structure. [UML](/src/resources/uml/behavioral/template_method.png)
+**Purpose** - define the skeleton of an algorithm and let override specific steps of it without changing its structure. 
+![UML](src/resources/uml/behavioral/template_method.png)
 
 **When**:
    - need to extend only particular steps of an algorithm, but not the whole algorithm
@@ -402,7 +421,8 @@
 
 
 ## Visitor
-**Purpose** - separate algorithms from objects on which they operate. [UML](/src/resources/uml/behavioral/visitor.png)
+**Purpose** - separate algorithms from objects on which they operate. 
+![UML](src/resources/uml/behavioral/visitor.png)
 
 **When**:
    - need to perform an operation on all elements of complex structure and not affect to class definition
