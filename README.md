@@ -45,7 +45,8 @@
 
 
 ## Singleton
-**Purpose** - ensure that a class has only one instance. [UML](/src/resources/uml/creational/singleton.png)
+**Purpose** - ensure that a class has only one instance. 
+![UML](src/resources/uml/creational/singleton.png)
 
 **When**:
    - a class in a program should have just a single instance available to all clients (for example, service to work with db)
@@ -64,7 +65,8 @@
 
 
 ## Builder
-**Purpose** - construct complex objects step by step. [UML](/src/resources/uml/creational/builder.png)
+**Purpose** - construct complex objects step by step. 
+![UML](/src/resources/uml/creational/builder.png)
 
 **When**:
    - immutable classes with multiple attributes
