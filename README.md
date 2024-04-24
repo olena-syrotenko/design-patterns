@@ -46,6 +46,7 @@
 
 ## Singleton
 **Purpose** - ensure that a class has only one instance. 
+
 ![UML](src/resources/uml/creational/singleton.png)
 
 **When**:
@@ -83,6 +84,7 @@
 
 ## Prototype
 **Purpose** - copy existing object to create a separate new one. 
+
 ![UML](src/resources/uml/creational/prototype.png)
 
 **When**:
@@ -99,6 +101,7 @@
 
 ## Factory method
 **Purpose** - provide an interface for creating objects in a superclass. 
+
 ![UML](src/resources/uml/creational/factory_method.png)
 
 **When**:
@@ -115,6 +118,7 @@
 
 ## Abstract Factory
 **Purpose** - produce families of related object. 
+
 ![UML](src/resources/uml/creational/abstract_factory.png)
 
 **When**:
@@ -133,6 +137,7 @@
 
 ## Adapter
 **Purpose** - allow objects with incompatible interfaces to collaborate. 
+
 ![UML](src/resources/uml/structural/adapter.png)
 
 **When**:
@@ -150,6 +155,7 @@
 
 ## Bridge
 **Purpose** - split a large class or a set of closely related classes into two separate hierarchies — abstraction and implementation. 
+
 ![UML](src/resources/uml/structural/bridge.png)
 
 **When**:
@@ -170,6 +176,7 @@
 
 ## Composite
 **Purpose** - compose objects into tree structures and then work with these structures as if they were individual objects. 
+
 ![UML](src/resources/uml/structural/composite.png)
 
 **When**:
@@ -188,6 +195,7 @@
 
 ## Decorator
 **Purpose** - attach new behaviors to objects by placing these objects inside special wrapper objects. 
+
 ![UML](src/resources/uml/structural/decorator.png)
 
 **When**:
@@ -205,6 +213,7 @@
 
 ## Facade
 **Purpose** - provide a simplified interface to a library, a framework or any other complex set of classes. 
+
 ![UML](src/resources/uml/structural/facade.png)
 
 **When**:
@@ -221,6 +230,7 @@
 
 ## Flyweight
 **Purpose** - fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all the data in each object. 
+
 ![UML](src/resources/uml/structural/flyweight.png)
 
 **When**:
@@ -239,6 +249,7 @@
 
 ## Proxy
 **Purpose** - provide a substitute or placeholder for another object to controls access to it. 
+
 ![UML](src/resources/uml/structural/proxy.png)
 
 **When**:
@@ -265,6 +276,7 @@
 
 ## Chain of Responsibility
 **Purpose** - pass requests along a chain of handlers, where each handler decides either to process the request or to pass it to the next handler in the chain. 
+
 ![UML](src/resources/uml/behavioral/chain_of_responsibility.png)
 
 **When**:
@@ -284,6 +296,7 @@
 
 ## Command
 **Purpose** - turn a request into a stand-alone object that contains all information about the request and can be passed as a method argument. 
+
 ![UML](src/resources/uml/behavioral/command.png)
 
 **When**:
@@ -300,6 +313,7 @@
 
 ## Iterator
 **Purpose** - traverse elements of a collection without exposing its underlying representation. 
+
 ![UML](src/resources/uml/behavioral/iterator.png)
 
 **When**:
@@ -320,6 +334,7 @@
 
 ## Mediator
 **Purpose** - reduce chaotic dependencies between objects and forces them to communicate only via a mediator object. 
+
 ![UML](src/resources/uml/behavioral/mediator.png)
 
 **When**:
@@ -338,6 +353,7 @@
 
 ## Memento
 **Purpose** - save and restore the previous state of object without revealing the details of its implementation. 
+
 ![UML](src/resources/uml/behavioral/memento.png)
 
 **When**:
@@ -355,6 +371,7 @@
 
 ## Observer
 **Purpose** - define a subscription mechanism to notify multiple objects about any events that happen to the object they are observing. 
+
 ![UML](src/resources/uml/behavioral/observer.png)
 
 **When**:
@@ -372,6 +389,7 @@
 
 ## State
 **Purpose** - let an object alter its behaviour when its internal state changes (as if an object changed its class). 
+
 ![UML](src/resources/uml/behavioral/state.png)
 
 **When**:
@@ -390,6 +408,7 @@
 
 ## Strategy
 **Purpose** - define a family of algorithms as separate interchangeable objects. 
+
 ![UML](src/resources/uml/behavioral/strategy.png)
 
 **When**:
@@ -406,6 +425,7 @@
 
 ## Template Method
 **Purpose** - define the skeleton of an algorithm and let override specific steps of it without changing its structure. 
+
 ![UML](src/resources/uml/behavioral/template_method.png)
 
 **When**:
@@ -422,6 +442,7 @@
 
 ## Visitor
 **Purpose** - separate algorithms from objects on which they operate. 
+
 ![UML](src/resources/uml/behavioral/visitor.png)
 
 **When**:
